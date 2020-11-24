@@ -26,6 +26,7 @@ class Thread(models.Model):
         return self.title + " -- " + self.description
 
 
+#test comment 2
 class Post(models.Model):
     thread_id = models.ForeignKey(Thread, on_delete=models.CASCADE)
     user_Id = models.ForeignKey(User, on_delete=models.CASCADE)
