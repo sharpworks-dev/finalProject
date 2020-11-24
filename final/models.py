@@ -15,7 +15,6 @@ class User(models.Model):
         return self.first_name + " \"" + self.username + "\" " + self.last_name
 
 
-#test comment
 class Thread(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(max_length=300)
@@ -26,7 +25,6 @@ class Thread(models.Model):
         return self.title + " -- " + self.description
 
 
-#test comment 2
 class Post(models.Model):
     thread_id = models.ForeignKey(Thread, on_delete=models.CASCADE)
     user_Id = models.ForeignKey(User, on_delete=models.CASCADE)
