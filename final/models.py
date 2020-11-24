@@ -15,6 +15,7 @@ class User(models.Model):
         return self.first_name + " \"" + self.username + "\" " + self.last_name
 
 
+#test comment
 class Thread(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(max_length=300)
