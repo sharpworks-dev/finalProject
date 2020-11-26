@@ -1,5 +1,5 @@
 """
-WSGI config for finalProject project.
+WSGI config for final project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
