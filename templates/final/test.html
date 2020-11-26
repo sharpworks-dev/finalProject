@@ -6,6 +6,16 @@
 
 {% block body %}
 
-
+    <h2>View Threads</h2>
+    <ul>
+        {% for thread in threads %}
+            <li>
+                <a href="{% url 'thread' thread.id %}">
+                    <h3>{{ thread.title }}</h3>
+                </a>
+                <p>{{ thread.description }}</p>
+            </li>
+        {% endfor %}
+    </ul>
 
 {% endblock %}

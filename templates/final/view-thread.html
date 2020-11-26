@@ -1,0 +1,21 @@
+{% extends 'final/base.html' %}
+
+{% block title %}
+    <title>View Posts</title>
+{% endblock %}
+
+{% block body %}
+
+    <h2>View Posts</h2>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <a href="{% url 'post' post.id %}"><h3>{{ post.title }}</h3></a>
+                <p>{{ post.body }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'index' %}">Home</a>
+
+{% endblock %}

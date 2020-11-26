@@ -1,0 +1,51 @@
+{% extends 'final/base.html' %}
+
+{% block title %}
+    <title>{{ post.title }}</title>
+{% endblock %}
+
+{% block body %}
+
+    <a href="{% url 'index' %}">Home</a>
+
+    <h2>{{ post.title }}</h2>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <h5>{{ post.user_id }}</h5>
+            </div>
+            <div class="col-8">
+                <h5>{{ post.created_date }}</h5>
+            </div>
+        </div>
+    </div>
+
+    <p>{{ post.body }}</p>
+
+    <hr>
+
+    <div class="container">
+        {% for comment in comments %}
+            <div class="row">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-4">
+                            <h4>{{ comment.user_id }}</h4>
+                        </div>
+                        <div class="col-8">
+                            <h4>{{ comment.created_date }}</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p>{{ comment.body }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <br>
+        {% endfor %}
+    </div>
+
+{% endblock %}
