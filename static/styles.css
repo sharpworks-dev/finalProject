@@ -1,0 +1,48 @@
+body{
+
+}
+
+.jumbotron{
+    background-image: url("https://ak.picdn.net/shutterstock/videos/10728737/thumb/1.jpg");
+}
+
+#home{
+    text-align: center;
+    color: #fafafa;
+	font-size: 40px;
+	-webkit-text-stroke: 1px #fefefe;
+	text-shadow: -1px 0px 3px black,
+        -1px 0px 4px black,
+        -1px 0px 4px gray,
+        1px 1px 4px gray,
+        1px 2px 4px black,
+        2px 2px 3px black,
+        2px 2px 3px black;
+
+}
+
+#post{
+    text-align: start;
+    color: #fafafa;
+	font-size: 25px;
+	-webkit-text-stroke: 1px #fefefe;
+	text-shadow: -1px 0px 3px black,
+        -1px 0px 4px black,
+        -1px 0px 4px gray,
+        1px 1px 4px black,
+        1px 2px 4px black,
+        2px 2px 3px black,
+        2px 2px 3px black;
+
+}
+
+.navbar-brand{
+    font-weight: bold;
+    color: white;
+	font-size: 30px;
+	-webkit-text-stroke: 1px #F8F8F8;
+	text-shadow: -1px 4px 5px black,
+        3px 5px 8px black,
+        -1px 5px 10px gray;
+
+}

@@ -6,7 +6,7 @@ from .models import *
 def index(request):
     threads = Thread.objects.all()
     context = {'threads': threads}
-    return render(request, 'final/test.html', context)
+    return render(request, 'final/home.html', context)
 
 
 def view_thread(request, id):

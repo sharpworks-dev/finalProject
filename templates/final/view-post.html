@@ -3,7 +3,9 @@
 {% block title %}
     <title>{{ post.title }}</title>
 {% endblock %}
-
+    {% block jumbotron %}
+        <h1 id="post" class="display-5"><strong>{{ post.title }}</strong></h1>
+    {% endblock %}
 {% block body %}
 
     <a href="{% url 'index' %}">Home</a>
