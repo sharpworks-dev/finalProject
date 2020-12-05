@@ -6,10 +6,15 @@ body{
     background-image: url("https://ak.picdn.net/shutterstock/videos/10728737/thumb/1.jpg");
 }
 
-#home{
+/*
+    changed from #home to .jumbo-label to allow support across different pages
+    added font-weight: bold; to remove <strong> tags for cleaner code
+*/
+.jumbo-label{
     text-align: center;
     color: #fafafa;
 	font-size: 40px;
+    font-weight: bold;
 	-webkit-text-stroke: 1px #fefefe;
 	text-shadow: -1px 0px 3px black,
         -1px 0px 4px black,

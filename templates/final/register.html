@@ -1,0 +1,20 @@
+{% extends 'final/base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Register An Account</title>
+{% endblock %}
+
+{% block jumbotron %}
+    <h1 class="display-5 jumbo-label">Sign Up</h1>
+{% endblock %}
+
+{% block body %}
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Register">
+        <p>Already have an account? <a href="{% url 'login' %}" role="button">Login</a></p>
+        <a href="{% url 'index' %}" role="button">Home</a>
+    </form>
+{% endblock %}
