@@ -1,19 +1,20 @@
-
 body{
-background-color: #eff1f3;
+
 }
 
 .jumbotron{
     background-image: url("https://ak.picdn.net/shutterstock/videos/10728737/thumb/1.jpg");
-    border: 1px solid silver;
-    border-bottom-left-radius: 2em;
-    border-bottom-right-radius: 2em;
 }
 
-#header{
+/*
+    changed from #home to .jumbo-label to allow support across different pages
+    added font-weight: bold; to remove <strong> tags for cleaner code
+*/
+.jumbo-label{
     text-align: center;
     color: #fafafa;
 	font-size: 40px;
+    font-weight: bold;
 	-webkit-text-stroke: 1px #fefefe;
 	text-shadow: -1px 0px 3px black,
         -1px 0px 4px black,
@@ -25,7 +26,7 @@ background-color: #eff1f3;
 
 }
 
-#postHeader{
+#post{
     text-align: start;
     color: #fafafa;
 	font-size: 25px;
@@ -49,80 +50,4 @@ background-color: #eff1f3;
         3px 5px 8px black,
         -1px 5px 10px gray;
 
-}
-
-#main{
-    border: 1px solid silver;
-    border-radius: 0.25em;
-    background-color: #fefefe;
-    padding: 25px;
-}
-
-#title{
-    text-decoration: none;
-    font-family: Impact, sans-serif;
-}
-
-#desc{
-    font-family: Roboto, sans-serif;
-    font-style: italic;
-}
-
-#item{
-    padding: 20px;
-    list-style-type: circle;
-}
-
-#letter{
-    padding: 3px;
-    text-align: start;
-    color: #fafafa;
-	font-size: 32px;
-    -webkit-text-stroke: .5px gray;
-	text-shadow: 1px 2px 2px black,
-        1px 3px 3px black,
-        -1px 3px 3px gray;
-}
-
-h2{
-    display: inline;
-    font-size: 28px;
-    font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
-    font-weight: bold;
-}
-
-#details{
-    opacity: .5;
-    text-align: end;
-    font-style: italic;
-    font-size: 14px;
-}
-
-p{
-    font-family: Roboto, sans-serif;
-}
-
-#comment{
-    border: 1px solid silver;
-    border-radius: 0.5em;
-    padding: 20px;
-    margin-top: 45px;
-}
-
-#post{
-    padding: 15px;
-}
-
-#user{
-    font-weight: bold;
-    font-size: 15px;
-    font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
-}
-
-#body{
-    padding-top: 10px;
-}
-
-#head{
-    padding-bottom: 5px;
 }
