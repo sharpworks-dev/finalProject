@@ -1,7 +1,8 @@
+
 {% extends 'final/base.html' %}
 
 {% block title %}
-    <title>Final Project</title>
+    <title>Home</title>
 {% endblock %}
 
 {% block jumbotron %}
@@ -9,14 +10,14 @@
 {% endblock %}
 
 {% block body %}
-
+    <h2 id="letter">Threads</h2>
     <ul>
         {% for thread in threads %}
-            <li>
-                <a href="{% url 'thread' thread.id %}">
+            <li id="item">
+                <a id="title" href="{% url 'thread' thread.id %}">
                     <h3>{{ thread.title }}</h3>
                 </a>
-                <p>{{ thread.description }}</p>
+                <p id="desc"class="text-break">{{ thread.description }}</p>
             </li>
         {% endfor %}
     </ul>
