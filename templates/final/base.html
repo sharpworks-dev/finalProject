@@ -14,6 +14,7 @@
 
     <link rel="stylesheet" href="{% static '/styles.css' %}">
 </head>
+
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -54,9 +55,11 @@
             {% endblock %}
         </div>
     </div>
-    {% block body %}
+    <div id="main" class="container mt-5">
+        {% block body %}
 
-    {% endblock %}
+        {% endblock %}
+    </div>
 
 </body>
 </html>

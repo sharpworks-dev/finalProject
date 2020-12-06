@@ -3,49 +3,57 @@
 {% block title %}
     <title>{{ post.title }}</title>
 {% endblock %}
-    {% block jumbotron %}
-        <h1 id="post" class="display-5"><strong>{{ post.title }}</strong></h1>
-    {% endblock %}
+
+{% block jumbotron %}
+    <h1 id="postHeader" class="display-5"><strong>{{ post.title }}</strong></h1>
+{% endblock %}
+
 {% block body %}
 
-    <a href="{% url 'index' %}">Home</a>
-
-    <h2>{{ post.title }}</h2>
-
-    <div class="container">
+    <div class="container py-1">
         <div class="row">
-            <div class="col-4">
-                <h5>{{ post.user_id }}</h5>
+            <div id="head" class="col-md-8">
+                <h2><span id="letter">{{ post.title }}</span></h2>
             </div>
-            <div class="col-8">
-                <h5>{{ post.created_date }}</h5>
+            <div class="col-md-4">
+                <p id="details">By{{ post.user_id }}</p>
+                <p id="details">{{ post.created_date }}</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <p id="body">{{ post.body }}</p>
             </div>
         </div>
     </div>
 
-    <p>{{ post.body }}</p>
 
-    <hr>
-
-    <div class="container">
+    <div id="comment" class="container">
+        <div id="head">
+            <h2><span id="letter">Comments</span></h2>
+        </div>
         {% for comment in comments %}
+            <hr>
             <div class="row">
                 <div class="container">
                     <div class="row">
                         <div class="col-4">
-                            <h4>{{ comment.user_id }}</h4>
+                            <p id="user">{{ comment.user_id }}Chase T</p>
                         </div>
                         <div class="col-8">
-                            <h4>{{ comment.created_date }}</h4>
+                            <p id="details">{{ comment.created_date }}</p>
                         </div>
                     </div>
                     <div class="row">
-                        <p>{{ comment.body }}</p>
+                        <div class="col">
+                            <p>{{ comment.body }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <br>
+            <hr>
             <br>
         {% endfor %}
     </div>

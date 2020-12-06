@@ -5,21 +5,19 @@
 {% endblock %}
 
 {% block jumbotron %}
-    <h1 id="home" class="display-5"><strong>View Threads</strong></h1>
+    <h1 id="header" class="display-5"><strong>{{ thread.title }}</strong></h1>
 {% endblock %}
 
 {% block body %}
 
-    <h2>View Posts</h2>
+    <h2><span id="letter">V</span></h2><h2>iew Posts</h2>
     <ul>
         {% for post in posts %}
-            <li>
-                <a href="{% url 'post' post.id %}"><h3>{{ post.title }}</h3></a>
+            <li id="item">
+                <a id="title" href="{% url 'post' post.id %}"><h3>{{ post.title }}</h3></a>
                 <p>{{ post.body }}</p>
             </li>
         {% endfor %}
     </ul>
-
-    <a href="{% url 'index' %}">Home</a>
 
 {% endblock %}
