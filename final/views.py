@@ -25,7 +25,8 @@ def view_post(request, id):
     author_id = post.user_id
     author = User.objects.get(id=author_id)
     comments = Comment.objects.filter(post_id=id)
-    context = {'post': post, 'author': author, 'comments': comments}
+    user_is_author = request.user == author
+    context = {'post': post, 'author': author, 'comments': comments, 'user_is_author': user_is_author}
     return render(request, 'final/view-post.html', context)
 
 

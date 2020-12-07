@@ -26,6 +26,9 @@ class Post(models.Model):
     last_modified_date = models.DateTimeField(auto_now=True)
     body = models.TextField(max_length=10000)
 
+    class Meta:
+        unique_together = ('user', 'title')
+
     def __str__(self):
         return "User: " + str(self.user.username) + " -- " + self.title
 
@@ -38,4 +41,4 @@ class Comment(models.Model):
     body = models.TextField(max_length=1000)
 
     def __str__(self):
-        return "User: " + str(self.user_Id.username) + " -- " + self.body
+        return "User: " + str(self.user.username) + " -- " + self.body
