@@ -3,9 +3,11 @@
 {% block title %}
     <title>{{ post.title }}</title>
 {% endblock %}
-    {% block jumbotron %}
-        <h1 id="post" class="display-5"><strong>{{ post.title }}</strong></h1>
-    {% endblock %}
+
+{% block jumbotron %}
+    <h1 class="display-5 jumbo-label">{{ post.title }}</h1>
+{% endblock %}
+
 {% block body %}
 
     <a href="{% url 'index' %}">Home</a>
@@ -15,7 +17,7 @@
     <div class="container">
         <div class="row">
             <div class="col-4">
-                <h5>{{ post.user_id }}</h5>
+                <h5>{{ author.username }}</h5>
             </div>
             <div class="col-8">
                 <h5>{{ post.created_date }}</h5>
@@ -33,7 +35,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-4">
-                            <h4>{{ comment.user_id }}</h4>
+                            <h4>{{ comment.user.username }}</h4>
                         </div>
                         <div class="col-8">
                             <h4>{{ comment.created_date }}</h4>

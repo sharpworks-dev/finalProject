@@ -10,15 +10,38 @@
 
 {% block body %}
 
-    <ul>
-        {% for thread in threads %}
-            <li>
+    <div class="row">
+        <div class="col-6">
+            <h1>Threads</h1>
+        </div>
+        {% if user.is_authenticated %}
+            <div class="col-6 text-right">
+                <a href="{% url 'create-thread' %}" class="btn btn-success" role="button">+ Create Thread</a>
+            </div>
+        {% endif %}
+    </div>
+
+
+    {% for thread in threads %}
+        <hr>
+
+        <div class="row">
+            <div class="col-9">
                 <a href="{% url 'thread' thread.id %}">
                     <h3>{{ thread.title }}</h3>
                 </a>
+            </div>
+            <div class="col-3 text-right">
+                <p>Created on {{ thread.created_date.date }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
                 <p>{{ thread.description }}</p>
-            </li>
-        {% endfor %}
-    </ul>
+            </div>
+        </div>
+
+        <hr>
+    {% endfor %}
 
 {% endblock %}

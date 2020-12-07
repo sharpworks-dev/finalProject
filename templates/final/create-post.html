@@ -1,0 +1,24 @@
+{% extends 'final/base.html' %}
+{% load crispy_forms_tags %}
+{% load crispy_forms_filters %}
+
+{% block title %}
+    <title>Create Post</title>
+{% endblock %}
+
+{% block jumbotron %}
+    <h1 class="display-5 jumbo-label">New Post</h1>
+{% endblock %}
+
+{% block body %}
+
+    <form action="{% url 'create-post' user.id thread.id %}" method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <div>
+            <a href="{% url 'thread' thread.id %}" class="btn btn-secondary inline"><< Back <<</a>
+            <input type="submit" class="btn btn-success inline" value="Post">
+        </div>
+    </form>
+
+{% endblock %}

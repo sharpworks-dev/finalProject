@@ -13,7 +13,7 @@
     <form action="{% url 'login' %}" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Register">
+        <input type="submit" value="Login">
         <p>Don't have an account? <a href="{% url 'register' %}" role="button">Sign Up</a></p>
         <a href="{% url 'index' %}" role="button">Home</a>
     </form>
