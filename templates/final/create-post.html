@@ -16,7 +16,7 @@
         {% csrf_token %}
         {{ form|crispy }}
         <div>
-            <a href="{% url 'thread' thread.id %}" class="btn btn-secondary inline"><< Back <<</a>
+            <a href="{% url 'thread' thread.id %}" class="btn btn-secondary inline"><i class="fas fa-arrow-left"></i> Back</a>
             <input type="submit" class="btn btn-success inline" value="Post">
         </div>
     </form>

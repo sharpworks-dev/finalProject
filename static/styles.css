@@ -81,7 +81,7 @@ background-color: #eff1f3;
     list-style-type: circle;
 }
 
-#letter{
+.letter{
     padding: 3px;
     text-align: start;
     color: #fafafa;
@@ -98,18 +98,18 @@ h2{
     font-weight: bold;
 }
 
-#details{
-    opacity: .5;
+.details{
+    opacity: .7;
     text-align: end;
     font-style: italic;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 p{
     font-family: Roboto, sans-serif;
 }
 
-#comment{
+.comment{
     border: 1px solid silver;
     border-radius: 0.5em;
     padding: 20px;
@@ -120,16 +120,21 @@ p{
     padding: 15px;
 }
 
-#user{
+.user{
     font-weight: bold;
     font-size: 15px;
     font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
 }
 
-#body{
+.body{
     padding-top: 10px;
 }
 
-#head{
+.head{
     padding-bottom: 5px;
+}
+
+.home{
+    font-size: 25px;
+    padding-top: 25px;
 }

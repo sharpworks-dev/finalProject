@@ -10,50 +10,60 @@
 
 {% block body %}
 
-    <a href="{% url 'index' %}">Home</a>
-
     {% if user_is_author is True %}
         <h1>YOU ARE THE AUTHOR OF THIS POST</h1>
     {% endif %}
 
-    <h2>{{ post.title }}</h2>
 
-    <div class="container">
+    <div class="container py-1">
         <div class="row">
-            <div class="col-4">
-                <h5>{{ author.username }}</h5>
+            <div class="head col-md-8">
+                <h1>{{ post.title }}</h1>
             </div>
-            <div class="col-8">
-                <h5>{{ post.created_date }}</h5>
+            <div class="col-md-4">
+                <p class="details">By {{ author.username }}</p>
+                <p class="details">{{ post.created_date }}</p>
             </div>
         </div>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <p class="body">{{ post.body }}</p>
+            </div>
+        </div>
+        <hr>
     </div>
 
-    <p>{{ post.body }}</p>
 
-    <hr>
-
-    <div class="container">
+    <div class="comment" class="container">
+        <div class="head">
+            <h2>Comments</h2>
+        </div>
         {% for comment in comments %}
+            <hr>
             <div class="row">
                 <div class="container">
                     <div class="row">
                         <div class="col-4">
-                            <h4>{{ comment.user.username }}</h4>
+                            <p class="user">{{ comment.user.username }}</p>
                         </div>
                         <div class="col-8">
-                            <h4>{{ comment.created_date }}</h4>
+                            <p class="details">{{ comment.created_date }}</p>
                         </div>
                     </div>
                     <div class="row">
-                        <p>{{ comment.body }}</p>
+                        <div class="col">
+                            <p>{{ comment.body }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <br>
+            <hr>
             <br>
         {% endfor %}
     </div>
+
+    <a href="{% url 'index' %}"><i class="home fas fa-home"></i></a>
 
 {% endblock %}

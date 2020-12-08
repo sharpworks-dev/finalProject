@@ -33,10 +33,10 @@
                 </li>
                 {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Profile</a>
+                        <a class="nav-link" href="#">Profile <i class="fas fa-users"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                        <a class="nav-link" href="{% url 'logout' %}">Logout <i class="fas fa-sign-out-alt"></i></a>
                     </li>
                 {% else %}
                     <li class="nav-item">
