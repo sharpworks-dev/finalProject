@@ -1,8 +1,23 @@
 {% extends 'final/base.html' %}
+{% load crispy_forms_filters %}
 {% load static %}
 {% load crispy_forms_tags %}
-{% load crispy_forms_field %}
 
 {% block title %}
-    <title>Edit Profile</title>
+    <title>Edit Profile -- {{ user_selected.username }}</title>
+{% endblock %}
+
+{% block jumbotron %}
+    <h1 class="display-5 jumbo-label">Edit Profile</h1>
+{% endblock %}
+
+{% block body %}
+    <h1>Edit Profile</h1>
+    <form action="{% url 'edit-profile' %}" method="post">
+        {% csrf_token %}
+        {{ user_form|crispy }}
+        {{ profile_form|crispy }}
+        <a href="{% url 'profile' user.id %}" class="btn btn-secondary inline" role="button">Go back</a>
+        <input type="submit" class="btn btn-success inline" value="Save">
+    </form>
 {% endblock %}
