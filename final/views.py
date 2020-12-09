@@ -123,4 +123,25 @@ def view_profile(request, id):
 
 def edit_profile(request, id):
     user_selected = User.objects.get(id=id)
-    return render(request, 'final/edit-profile.html')
+    profile_selected = Profile.objects.get(user=user_selected.id)
+    user_is_user_selected = request.user == user_selected
+    if user_is_user_selected:
+        if request.method == "POST":
+            user_form = UserForm(request.POST, instance=user_selected)
+            profile_form = ProfileForm(request.POST, instance=profile_selected)
+            if user_form.is_valid():
+                user_form.save()
+            if profile_form.is_valid():
+                profile_form.save()
+            return redirect('profile', user_selected.id)
+        else:
+            user_form = UserForm(instance=user_selected)
+            profile_selected = ProfileForm(instance=profile_selected)
+            context = {'user_form': user_form, 'profile_selected': profile_selected}
+            return render(request, 'final/edit-profile.html', context)
+    else:
+        return redirect('error')
+
+
+def error_view(request):
+    return render(request, 'final/403.html')
