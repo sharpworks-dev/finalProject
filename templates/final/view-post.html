@@ -11,7 +11,7 @@
 {% block body %}
 
     {% if user_is_author is True %}
-        <h1 class="details text-center">You are the author of this post</h1>
+        <h1 class="details text-center ml-auto">You are the author of this post </h1>
     {% endif %}
 
 
@@ -19,6 +19,9 @@
         <div class="row">
             <div class="head col-md-8">
                 <h1 class="header">{{ post.title }}</h1>
+                {% if user_is_author is True %}
+                    <a href="{% url 'edit-post' post.id %}" class="btn btn-success" role="button"><i class="fas fa-edit"></i>Edit</a>
+                {% endif %}
             </div>
             <div class="col-md-4">
                 <p class="details">By <a class="users" href="{% url 'profile' author.id%}">{{ author.username }}</a></p>

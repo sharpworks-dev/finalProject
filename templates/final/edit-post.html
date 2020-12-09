@@ -4,11 +4,11 @@
 {% load crispy_forms_tags %}
 
 {% block title %}
-    <title>Edit Post -- {{ form.title }}</title>
+    <title>Edit Post -- {{ post.title }}</title>
 {% endblock %}
 
 {% block jumbotron %}
-    <h1 class="display-5 jumbo-label">{{ form.title }}</h1>
+    <h1 class="display-5 jumbo-label">{{ post.title }}</h1>
 {% endblock %}
 
 {% block body %}

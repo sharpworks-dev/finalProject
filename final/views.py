@@ -155,6 +155,7 @@ def edit_post(request, id):
         if request.method == "POST":
             form = PostForm(request.POST, instance=post_selected)
             if form.is_valid():
+                print('form is valid on edit')
                 post = form.save()
                 return redirect('post', id=post.id)
         else:
