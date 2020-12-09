@@ -64,18 +64,26 @@
     </div>
 
     <footer>
-        <div class="container">
+       <div class="container">
             <div class="row">
-                <p>Created by:</p>
+                <div class="col">
+                    <h3 class="text-center">This website was created by:</h3>
+                </div>
             </div>
             <div class="row">
-                <p><a href="{% url 'profile' 2 %}">Ryan Sharp</a> - rsharpworks@gmail.com</p>
+                <div class="col-6">
+                    <a href="{% url 'profile' 2 %}">Ryan Sharp</a>
+                    <p>rsharpworks@gmail.com</p>
+                </div>
+                <div class="col-6">
+                    <a href="{% url 'profile' 5 %}">Chase Thompson</a>
+                    <p>chasethompsonschool@gmail.com</p>
+                </div>
             </div>
             <div class="row">
-                <p><a href="{% url 'profile' 5 %}">Chase Thompson</a> - chasethompsonschool@gmail.com</p>
-            </div>
-            <div class="row">
-                <p>POSTED Inc © 2020. All rights reserved</p>
+                <div class="col">
+                    <p class="text-center">POSTED Inc © 2020. All rights reserved</p>
+                </div>
             </div>
         </div>
     </footer>
