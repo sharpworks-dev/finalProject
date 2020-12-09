@@ -122,4 +122,5 @@ def view_profile(request, id):
 
 
 def edit_profile(request, id):
+
     return render(request, 'final/edit-profile.html')
