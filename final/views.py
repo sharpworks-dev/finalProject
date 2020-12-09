@@ -114,7 +114,7 @@ def create_post(request, thread_id):
 def view_profile(request, id):
     user_selected = User.objects.get(id=id)
     profile_selected = Profile.objects.get(user=user_selected.id)
-    user_is_user_selected = request.user == profile_selected
+    user_is_user_selected = request.user == user_selected
     context = {'user_selected': user_selected,
                'profile_selected': profile_selected,
                'user_is_user_selected': user_is_user_selected}
@@ -122,4 +122,4 @@ def view_profile(request, id):
 
 
 def edit_profile(request, id):
-    return None
+    return render(request, 'final/edit-profile.html')
