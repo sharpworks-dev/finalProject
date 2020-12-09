@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import *
-from .forms import ThreadForm, PostForm
+from .forms import ThreadForm, PostForm, CommentForm, UserForm, ProfileForm
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
@@ -26,7 +26,22 @@ def view_post(request, id):
     author = User.objects.get(id=author_id)
     comments = Comment.objects.filter(post_id=id)
     user_is_author = request.user == author
-    context = {'post': post, 'author': author, 'comments': comments, 'user_is_author': user_is_author}
+    if request.method == "POST":
+        form = request.POST.copy()
+        user_id = request.user.id
+        form.update({'user': user_id,
+                     'post': id})
+        final_comment_form = CommentForm(form)
+        if final_comment_form.is_valid():
+            final_comment_form.save()
+            return redirect('post', id)
+
+    comment_form = CommentForm()
+    context = {'post': post,
+               'author': author,
+               'comments': comments,
+               'commentForm': comment_form,
+               'user_is_author': user_is_author}
     return render(request, 'final/view-post.html', context)
 
 
@@ -82,8 +97,8 @@ def create_post(request, thread_id):
     if request.method == 'POST':
         form = request.POST.copy()
         user_id = request.user.id
-        form.update({'thread_id': thread_id,
-                     'user_Id': user_id})
+        form.update({'thread': thread_id,
+                     'user': user_id})
         final_form = PostForm(form)
         if final_form.is_valid():
             post = final_form.save()
@@ -104,3 +119,7 @@ def view_profile(request, id):
                'profile_selected': profile_selected,
                'user_is_user_selected': user_is_user_selected}
     return render(request, 'final/view-profile.html', context)
+
+
+def edit_profile(request, id):
+    return None

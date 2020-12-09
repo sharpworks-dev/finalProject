@@ -39,6 +39,22 @@
         <div class="head">
             <h1 class="">Comments</h1>
         </div>
+    
+        {% if user.is_authenticated %}
+            <form action="{% url 'post' post.id %}" method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-9">
+                        {{ commentForm.body }}
+                    </div>
+                    <div class="col-3">
+                        <input type="submit" value="Comment">
+                    </div>
+                </div>
+
+            </form>
+        {% endif %} 
+    
         {% for comment in comments %}
             <hr>
             <div class="row">
@@ -58,9 +74,6 @@
                     </div>
                 </div>
             </div>
-
-            <hr>
-            <br>
         {% endfor %}
     </div>
 

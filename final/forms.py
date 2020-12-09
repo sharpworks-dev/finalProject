@@ -2,6 +2,18 @@ from django import forms
 from .models import *
 
 
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'email']
+
+        widgets = {
+            'first_name': forms.TextInput(attrs={'placeholder': 'Ex: John'}),
+            'last_name': forms.TextInput(attrs={'placeholder': 'Ex: Wick'}),
+            'email': forms.TextInput(attrs={'placeholder': 'Ex: jwick@fortnite.com'})
+        }
+
+
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
@@ -32,6 +44,18 @@ class PostForm(forms.ModelForm):
         widgets = {
             'title': forms.TextInput(attrs={'placeholder': 'Enter post title'}),
             'body': forms.Textarea(attrs={'placeholder': 'Type out your post here'}),
-            'thread_id': forms.HiddenInput(),
-            'user_Id': forms.HiddenInput()
+            'thread': forms.HiddenInput(),
+            'user': forms.HiddenInput()
+        }
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = '__all__'
+
+        widgets = {
+            'body': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Add a comment'}),
+            'post': forms.HiddenInput(),
+            'user': forms.HiddenInput()
         }
