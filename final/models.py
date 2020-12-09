@@ -3,9 +3,12 @@ from django.contrib.auth.models import User
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, to_field='id', on_delete=models.CASCADE)
     bio = models.TextField(max_length=2000)
     status = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.user.username + "'s Profile"
 
 
 class Thread(models.Model):

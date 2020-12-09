@@ -12,7 +12,7 @@
 
 {% block body %}
 
-    <form action="{% url 'create-post' user.id thread.id %}" method="post">
+    <form action="{% url 'create-post' thread.id %}" method="post">
         {% csrf_token %}
         {{ form|crispy }}
         <div>

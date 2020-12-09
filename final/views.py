@@ -35,7 +35,8 @@ def register_view(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            Profile.objects.create(user=user)
+            profile = Profile.objects.create(user=user)
+            profile.save()
             login(request, user)
             return redirect('index')
     else:
@@ -77,9 +78,10 @@ def create_thread(request):
     return render(request, 'final/create-thread.html', context)
 
 
-def create_post(request, user_id, thread_id):
+def create_post(request, thread_id):
     if request.method == 'POST':
         form = request.POST.copy()
+        user_id = request.user.id
         form.update({'thread_id': thread_id,
                      'user_Id': user_id})
         final_form = PostForm(form)
@@ -92,3 +94,13 @@ def create_post(request, user_id, thread_id):
     thread = Thread.objects.get(id=thread_id)
     context = {'form': form, 'thread': thread}
     return render(request, 'final/create-post.html', context)
+
+
+def view_profile(request, id):
+    user_selected = User.objects.get(id=id)
+    profile_selected = Profile.objects.get(user=user_selected.id)
+    user_is_user_selected = request.user == profile_selected
+    context = {'user_selected': user_selected,
+               'profile_selected': profile_selected,
+               'user_is_user_selected': user_is_user_selected}
+    return render(request, 'final/view-profile.html', context)

@@ -12,11 +12,11 @@
 
     <div class="row">
         <div class="col-6">
-            <h1>Threads</h1>
+            <h1 class="header">Threads</h1>
         </div>
         {% if user.is_authenticated %}
             <div class="col-6 text-right">
-                <a href="{% url 'create-thread' %}" class="btn btn-success" role="button">+ Create Thread</a>
+                <a href="{% url 'create-thread' %}" class="btn btn-success" role="button"><i class="fas fa-plus-circle"></i> Create Thread</a>
             </div>
         {% endif %}
     </div>
@@ -28,7 +28,7 @@
         <div class="row">
             <div class="col-9">
                 <a href="{% url 'thread' thread.id %}">
-                    <h3>{{ thread.title }}</h3>
+                    <h1 class="titles">{{ thread.title }}</h1>
                 </a>
             </div>
             <div class="col-3 text-right">
@@ -40,8 +40,6 @@
                 <p>{{ thread.description }}</p>
             </div>
         </div>
-
-        <hr>
     {% endfor %}
 
 {% endblock %}
