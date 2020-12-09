@@ -27,7 +27,7 @@
 
         <div class="row">
             <div class="col-9">
-                <a href="{% url 'thread' thread.id %}">
+                <a class="a" href="{% url 'thread' thread.id %}">
                     <h1 class="titles">{{ thread.title }}</h1>
                 </a>
             </div>
@@ -41,5 +41,5 @@
             </div>
         </div>
     {% endfor %}
-
+    <a href="#jumbo">Back to top <i class="fas fa-level-up-alt"></i></a>
 {% endblock %}
