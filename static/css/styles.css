@@ -9,7 +9,7 @@ background-color: #021935;
 }
 
 .jumbotron{
-    background-image: url("https://cdn.discordapp.com/attachments/532791302769737740/786053769409462352/art-2578353.jpg");
+    /*background-image: url("https://cdn.discordapp.com/attachments/532791302769737740/786053769409462352/art-2578353.jpg");*/
     background-size: 100%;
     border: 1px solid silver;
     border-bottom-left-radius: 1em;
@@ -76,6 +76,10 @@ background-color: #021935;
 
 .inline {
     display: inline;
+}
+
+.block {
+    display: block;
 }
 
 #main{
