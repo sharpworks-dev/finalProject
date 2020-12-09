@@ -1,0 +1,54 @@
+{% extends 'final/base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>View Profile - {{ user_selected.username }}</title>
+{% endblock %}
+
+{% block jumbotron %}
+    <h1 class="display-5 jumbo-label">{{ user_selected.username }}</h1>
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-9">
+            <div class="row">
+                <h1>{{ user_selected.username }}</h1>
+            </div>
+            {% if profile_selected.status is not None %}
+                <div class="row">
+                    <p>Status: <i>{{ profile_selected.status }}</i></p>
+                </div>
+            {% else %}
+                <div class="row">
+                    <p>Status: <i>{{ user_selected.username }} does not currently have a status set.</i></p>
+                </div>
+            {% endif %}
+        </div>
+        <div class="col-3">
+            {% if user_is_user_selected %}
+                <div class="row">
+                    <a href="#" class="btn btn-success" role="button">Edit</a>
+                </div>
+            {% endif %}
+            <div class="row">
+                <i>Member since {{ user_selected.date_joined.date }}</i>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <h3>About</h3>
+        <p>{{ profile_selected.bio }}</p>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <h3>Info</h3>
+        <p>Name: {{ user_selected.first_name }} {{ user_selected.last_name }}</p>
+        <p>Email: {{ user_selected.email }}</p>
+    </div>
+{% endblock %}
