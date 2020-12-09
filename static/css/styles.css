@@ -1,12 +1,21 @@
 body{
-background-color: #eff1f3;
+background-color: #021935;
 }
 
+.bg-dark{
+    color: #021935 !important;
+}
+.logo{
+    width: 7%;
+    padding-right: 5px;
+    padding-bottom: 7px;
+}
 .jumbotron{
-    background-image: url("https://ak.picdn.net/shutterstock/videos/10728737/thumb/1.jpg");
+    background-image: url("https://cdn.discordapp.com/attachments/532791302769737740/786053769409462352/art-2578353.jpg");
+    background-size: 100%;
     border: 1px solid silver;
-    border-bottom-left-radius: 2em;
-    border-bottom-right-radius: 2em;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
 }
 
 /*
@@ -29,19 +38,31 @@ background-color: #eff1f3;
 
 }
 
-#postHeader{
-    text-align: start;
-    color: #fafafa;
-	font-size: 25px;
-	-webkit-text-stroke: 1px #fefefe;
-	text-shadow: -1px 0px 3px black,
-        -1px 0px 4px black,
-        -1px 0px 4px gray,
-        1px 1px 4px black,
-        1px 2px 4px black,
-        2px 2px 3px black,
-        2px 2px 3px black;
+/*#postHeader {*/
+/*    text-align: start;*/
+/*    color: #fafafa;*/
+/*    font-size: 25px;*/
+/*    -webkit-text-stroke: 1px #fefefe;*/
+/*    text-shadow: -1px 0px 3px black,*/
+/*    -1px 0px 4px black,*/
+/*    -1px 0px 4px gray,*/
+/*    1px 1px 4px black,*/
+/*    1px 2px 4px black,*/
+/*    2px 2px 3px black,*/
+/*    2px 2px 3px black;*/
+/*}*/
 
+.header{
+    font-weight: bold;
+    text-align: start;
+    color: black;
+	font-size: 1.8em;
+}
+
+.titles{
+    font-weight: bold;
+    text-align: start;
+	font-size: 1.5em;
 }
 
 .navbar-brand{
@@ -137,4 +158,11 @@ p{
 .home{
     font-size: 25px;
     padding-top: 25px;
+}
+
+footer{
+    padding-top: 50px;
+    font-size: .8em;
+    text-align: center;
+    color: #fafafa;
 }
