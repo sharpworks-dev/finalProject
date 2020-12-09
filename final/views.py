@@ -122,5 +122,5 @@ def view_profile(request, id):
 
 
 def edit_profile(request, id):
-
+    user_selected = User.objects.get(id=id)
     return render(request, 'final/edit-profile.html')
