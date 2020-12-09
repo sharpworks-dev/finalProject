@@ -20,7 +20,7 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="{% url 'index' %}"><img class="logo" src="https://cdn.discordapp.com/attachments/532791302769737740/786059808616218664/Posted_logo2.png")>POSTED</a>
+        <a class="navbar-brand" href="{% url 'index' %}"><img class="logo" src="img/Banner.jpg">POSTED</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -35,7 +35,7 @@
                 </li>
                 {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Profile <i class="fas fa-users"></i></a>
+                        <a class="nav-link" href="{% url 'profile' user.id%}">Profile <i class="fas fa-users"></i></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'logout' %}">Logout <i class="fas fa-sign-out-alt"></i></a>

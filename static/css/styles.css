@@ -2,14 +2,12 @@ body{
 background-color: #021935;
 }
 
-.bg-dark{
-    color: #021935 !important;
-}
 .logo{
-    width: 7%;
+    width: 1.2em;
     padding-right: 5px;
     padding-bottom: 7px;
 }
+
 .jumbotron{
     background-image: url("https://cdn.discordapp.com/attachments/532791302769737740/786053769409462352/art-2578353.jpg");
     background-size: 100%;
