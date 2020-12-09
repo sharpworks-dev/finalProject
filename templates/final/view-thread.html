@@ -27,18 +27,18 @@
             <hr>
 
             <div class="row">
-                <div class="col-9">
+                <div class="col-12">
                     <a href="{% url 'post' post.id %}">
                         <h1 class="titles">{{ post.title }}</h1>
                     </a>
                 </div>
-                <div class="col-3 text-right">
-                    <p>Created by {{ post.user.username }}</p>
-                </div>
             </div>
             <div class="row">
-                <div class="col-12">
-                    <p>Created on {{ post.created_date.date }}</p>
+                <div class="col-6">
+                    <p class="details text-left">Created by {{ post.user.username }}</p>
+                </div>
+                <div class="col-6">
+                    <p class="details text-right">Created on {{ post.created_date.date }}</p>
                 </div>
             </div>
 
