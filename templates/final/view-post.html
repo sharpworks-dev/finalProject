@@ -37,7 +37,7 @@
 
     <div class="comment" class="container">
         <div class="head">
-            <h1 class="">Comments</h1>
+            <h1 class="header">Comments</h1>
         </div>
     
         {% if user.is_authenticated %}
@@ -48,7 +48,7 @@
                         {{ commentForm.body }}
                     </div>
                     <div class="col-3">
-                        <input type="submit" value="Comment">
+                        <input type="submit" value="Comment" class="btn btn-success">
                     </div>
                 </div>
 
