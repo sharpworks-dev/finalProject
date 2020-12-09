@@ -21,7 +21,7 @@
                 <h1 class="header">{{ post.title }}</h1>
             </div>
             <div class="col-md-4">
-                <p class="details">By {{ author.username }}</p>
+                <p class="details">By <a href="{% url 'profile' author.id%}">{{ author.username }}</a></p>
                 <p class="details">{{ post.created_date }}</p>
             </div>
         </div>
@@ -37,7 +37,7 @@
 
     <div class="comment" class="container">
         <div class="head">
-            <h1 class="">Comments</h1>
+            <h1 class="header">Comments</h1>
         </div>
     
         {% if user.is_authenticated %}
@@ -48,7 +48,7 @@
                         {{ commentForm.body }}
                     </div>
                     <div class="col-3">
-                        <input type="submit" value="Comment">
+                        <input type="submit" value="Comment" class="btn btn-success">
                     </div>
                 </div>
 
@@ -61,7 +61,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-4">
-                            <p class="user">{{ comment.user.username }}</p>
+                            <p class="user"><a href="{% url 'profile' comment.user.id%}">{{ comment.user.username }}</a></p>
                         </div>
                         <div class="col-8">
                             <p class="details">{{ comment.created_date }}</p>
