@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block body %}
-
+    <h1 class="header">Create a post</h1>
     <form action="{% url 'create-post' thread.id %}" method="post">
         {% csrf_token %}
         {{ form|crispy }}
