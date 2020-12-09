@@ -5,9 +5,10 @@ from .models import *
 class UserForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'email']
+        fields = ['username', 'first_name', 'last_name', 'email']
 
         widgets = {
+            'username': forms.TextInput(attrs={'placeholder': 'Username'}),
             'first_name': forms.TextInput(attrs={'placeholder': 'Ex: John'}),
             'last_name': forms.TextInput(attrs={'placeholder': 'Ex: Wick'}),
             'email': forms.TextInput(attrs={'placeholder': 'Ex: jwick@fortnite.com'})
@@ -21,7 +22,8 @@ class ProfileForm(forms.ModelForm):
 
         widgets = {
             'bio': forms.Textarea(),
-            'status': forms.TextInput()
+            'status': forms.TextInput(),
+            'user': forms.HiddenInput()
         }
 
 
