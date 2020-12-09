@@ -136,8 +136,11 @@ def edit_profile(request, id):
             return redirect('profile', user_selected.id)
         else:
             user_form = UserForm(instance=user_selected)
-            profile_selected = ProfileForm(instance=profile_selected)
-            context = {'user_form': user_form, 'profile_selected': profile_selected}
+            profile_form = ProfileForm(instance=profile_selected)
+            context = {'user_selected': user_selected,
+                       'profile_selected': profile_selected,
+                       'user_form': user_form,
+                       'profile_form': profile_form}
             return render(request, 'final/edit-profile.html', context)
     else:
         return redirect('error')
