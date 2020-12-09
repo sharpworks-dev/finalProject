@@ -144,3 +144,7 @@ def edit_profile(request):
 
 def error_view(request):
     return render(request, 'final/403.html')
+
+
+def edit_post(request, id):
+    return None

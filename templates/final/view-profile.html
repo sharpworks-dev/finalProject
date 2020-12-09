@@ -29,7 +29,7 @@
             <div class="col-3">
                 {% if user_is_user_selected %}
                     <div class="row">
-                        <a href="#" class="edit ml-auto btn btn-success" role="button"><i class="fas fa-wrench"></i> Edit Profile</a>
+                        <a href="{% url 'edit-profile' %}" class="edit ml-auto btn btn-success" role="button"><i class="fas fa-wrench"></i> Edit Profile</a>
                     </div>
                 {% endif %}
                 <div class="row">
