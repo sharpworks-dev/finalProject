@@ -16,10 +16,6 @@ background-color: #021935;
     border-bottom-right-radius: 1em;
 }
 
-/*
-    changed from #home to .jumbo-label to allow support across different pages
-    added font-weight: bold; to remove <strong> tags for cleaner code
-*/
 .jumbo-label{
     text-align: center;
     color: #fafafa;
@@ -33,22 +29,7 @@ background-color: #021935;
         1px 2px 4px black,
         2px 2px 3px black,
         2px 2px 3px black;
-
 }
-
-/*#postHeader {*/
-/*    text-align: start;*/
-/*    color: #fafafa;*/
-/*    font-size: 25px;*/
-/*    -webkit-text-stroke: 1px #fefefe;*/
-/*    text-shadow: -1px 0px 3px black,*/
-/*    -1px 0px 4px black,*/
-/*    -1px 0px 4px gray,*/
-/*    1px 1px 4px black,*/
-/*    1px 2px 4px black,*/
-/*    2px 2px 3px black,*/
-/*    2px 2px 3px black;*/
-/*}*/
 
 .header{
     font-weight: bold;
@@ -82,26 +63,11 @@ background-color: #021935;
     display: block;
 }
 
-#main{
+.main{
     border: 1px solid silver;
     border-radius: 0.5em;
     background-color: #fefefe;
     padding: 25px;
-}
-
-#title{
-    text-decoration: none;
-    font-family: Impact, sans-serif;
-}
-
-#desc{
-    font-family: Roboto, sans-serif;
-    font-style: italic;
-}
-
-#item{
-    padding: 20px;
-    list-style-type: circle;
 }
 
 .letter{
@@ -138,10 +104,6 @@ p{
     margin-top: 45px;
 }
 
-#post{
-    padding: 15px;
-}
-
 .user{
     font-weight: bold;
     font-size: 15px;
@@ -166,4 +128,16 @@ footer{
     font-size: .8em;
     text-align: center;
     color: #fafafa;
+}
+
+.edit{
+    margin-right: 40px;
+}
+
+a{
+    text-decoration: none !important;
+}
+
+.users{
+    color: inherit;
 }

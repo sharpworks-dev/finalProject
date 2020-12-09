@@ -21,7 +21,7 @@
                 <h1 class="header">{{ post.title }}</h1>
             </div>
             <div class="col-md-4">
-                <p class="details">By <a href="{% url 'profile' author.id%}">{{ author.username }}</a></p>
+                <p class="details">By <a class="users" href="{% url 'profile' author.id%}">{{ author.username }}</a></p>
                 <p class="details">{{ post.created_date }}</p>
             </div>
         </div>
@@ -51,17 +51,16 @@
                         <input type="submit" value="Comment" class="btn btn-success">
                     </div>
                 </div>
-
             </form>
-        {% endif %} 
-    
+        {% endif %}
+
         {% for comment in comments %}
             <hr>
             <div class="row">
                 <div class="container">
                     <div class="row">
                         <div class="col-4">
-                            <p class="user"><a href="{% url 'profile' comment.user.id%}">{{ comment.user.username }}</a></p>
+                            <p class="user"><a class="users" href="{% url 'profile' comment.user.id%}">{{ comment.user.username }}</a></p>
                         </div>
                         <div class="col-8">
                             <p class="details">{{ comment.created_date }}</p>
@@ -77,6 +76,6 @@
         {% endfor %}
     </div>
 
-    <a href="{% url 'index' %}"><i class="home fas fa-home"></i></a>
+    <a href="#jumbo">Back to top <i class="fas fa-level-up-alt"></i></a>
 
 {% endblock %}
