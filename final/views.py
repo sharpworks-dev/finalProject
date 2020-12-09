@@ -147,4 +147,19 @@ def error_view(request):
 
 
 def edit_post(request, id):
-    return None
+    post_selected = Post.objects.get(id=id)
+    author_id = post_selected.user_id
+    author = User.objects.get(id=author_id)
+    user_is_author = request.user == author
+    if user_is_author:
+        if request.method == "POST":
+            form = PostForm(request.POST, instance=post_selected)
+            if form.is_valid():
+                post = form.save()
+                return redirect('post', id=post.id)
+        else:
+            form = PostForm(instance=post_selected)
+            context = {'form': form, 'post': post_selected}
+            return render(request, 'final/edit-post.html', context)
+    else:
+        return redirect('error')
