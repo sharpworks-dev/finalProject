@@ -13,8 +13,7 @@
     <form action="{% url 'login' %}" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Login">
+        <input type="submit" value="Login" class="btn btn-success">
         <p>Don't have an account? <a href="{% url 'register' %}" role="button">Sign Up</a></p>
-        <a href="{% url 'index' %}" role="button">Home</a>
     </form>
 {% endblock %}

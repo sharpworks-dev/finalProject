@@ -19,8 +19,8 @@ class ThreadForm(forms.ModelForm):
         fields = '__all__'
 
         widgets = {
-            'title': forms.TextInput(attrs={'placeholder': 'Enter thread name.'}),
-            'description': forms.Textarea(attrs={'placeholder': 'Describe your thread.'})
+            'title': forms.TextInput(attrs={'placeholder': 'Enter thread name'}),
+            'description': forms.Textarea(attrs={'placeholder': 'Describe your thread'})
         }
 
 
@@ -30,8 +30,8 @@ class PostForm(forms.ModelForm):
         fields = '__all__'
 
         widgets = {
-            'title': forms.TextInput(attrs={'placeholder': 'Enter post title.'}),
-            'body': forms.Textarea(attrs={'placeholder': 'Type out your post here.'}),
+            'title': forms.TextInput(attrs={'placeholder': 'Enter post title'}),
+            'body': forms.Textarea(attrs={'placeholder': 'Type out your post here'}),
             'thread_id': forms.HiddenInput(),
             'user_Id': forms.HiddenInput()
         }

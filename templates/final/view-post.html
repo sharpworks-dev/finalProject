@@ -11,14 +11,14 @@
 {% block body %}
 
     {% if user_is_author is True %}
-        <h1>YOU ARE THE AUTHOR OF THIS POST</h1>
+        <h1 class="details text-center">You are the author of this post</h1>
     {% endif %}
 
 
     <div class="container py-1">
         <div class="row">
             <div class="head col-md-8">
-                <h1>{{ post.title }}</h1>
+                <h1 class="header">{{ post.title }}</h1>
             </div>
             <div class="col-md-4">
                 <p class="details">By {{ author.username }}</p>
@@ -37,7 +37,7 @@
 
     <div class="comment" class="container">
         <div class="head">
-            <h2>Comments</h2>
+            <h1 class="">Comments</h1>
         </div>
         {% for comment in comments %}
             <hr>
