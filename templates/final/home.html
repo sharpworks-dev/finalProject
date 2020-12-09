@@ -1,0 +1,45 @@
+{% extends 'final/base.html' %}
+
+{% block title %}
+    <title>Home</title>
+{% endblock %}
+
+{% block jumbotron %}
+    <h1 class="display-5 jumbo-label">Home</h1>
+{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-6">
+            <h1 class="header">Threads</h1>
+        </div>
+        {% if user.is_authenticated %}
+            <div class="col-6 text-right">
+                <a href="{% url 'create-thread' %}" class="btn btn-success" role="button"><i class="fas fa-plus-circle"></i> Create Thread</a>
+            </div>
+        {% endif %}
+    </div>
+
+
+    {% for thread in threads %}
+        <hr>
+
+        <div class="row">
+            <div class="col-9">
+                <a class="a" href="{% url 'thread' thread.id %}">
+                    <h1 class="titles">{{ thread.title }}</h1>
+                </a>
+            </div>
+            <div class="col-3 text-right">
+                <p class="details">Created on {{ thread.created_date.date }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p>{{ thread.description }}</p>
+            </div>
+        </div>
+    {% endfor %}
+    <a href="#jumbo">Back to top <i class="fas fa-level-up-alt"></i></a>
+{% endblock %}

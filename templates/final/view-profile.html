@@ -1,0 +1,61 @@
+{% extends 'final/base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>View Profile - {{ user_selected.username }}</title>
+{% endblock %}
+
+{% block jumbotron %}
+    <h1 class="display-5 jumbo-label">{{ user_selected.username }}</h1>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-9">
+                <div class="row">
+                    <h1 class="header">{{ user_selected.username }}</h1>
+                </div>
+                {% if profile_selected.status is not None %}
+                    <div class="row">
+                        <p>Status: <i>{{ profile_selected.status }}</i></p>
+                    </div>
+                {% else %}
+                    <div class="row">
+                        <p>Status: <i>{{ user_selected.username }} does not currently have a status set.</i></p>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col-3">
+                {% if user_is_user_selected %}
+                    <div class="row">
+                        <a href="{% url 'edit-profile' %}" class="edit ml-auto btn btn-success" role="button"><i class="fas fa-wrench"></i> Edit Profile</a>
+                    </div>
+                {% endif %}
+                <div class="row">
+                    <i class="edit ml-auto">Member since {{ user_selected.date_joined.date }}</i>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <br>
+        <div class="row">
+            <h1 class="titles">About</h1>
+        </div>
+        <div class="row">
+            <p>{{ profile_selected.bio }}</p>
+        </div>
+        <hr>
+        <br>
+        <div class="row">
+            <h1 class="titles">Info</h1>
+        </div>
+        <br>
+        <div class="row">
+            <p>Name: {{ user_selected.first_name }} {{ user_selected.last_name }}</p>
+        </div>
+        <div class="row">
+            <p class="block">Email: {{ user_selected.email }}</p>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'final/base.html' %}
+{% load crispy_forms_filters %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title>Edit Post -- {{ post.title }}</title>
+{% endblock %}
+
+{% block jumbotron %}
+    <h1 class="display-5 jumbo-label">{{ post.title }}</h1>
+{% endblock %}
+
+{% block body %}
+    <h1>Edit Post</h1>
+    <form action="{% url 'edit-post' post.id %}" method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <a href="{% url 'post' post.id %}" class="btn btn-secondary inline" role="button">Go back</a>
+        <input type="submit" class="btn btn-success inline" value="Save">
+    </form>
+{% endblock %}

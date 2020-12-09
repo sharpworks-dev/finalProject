@@ -4,18 +4,57 @@
     <title>View Posts</title>
 {% endblock %}
 
+{% block jumbotron %}
+    <h1 class="display-5 jumbo-label">{{ thread.title }}</h1>
+{% endblock %}
+
 {% block body %}
 
-    <h2>View Posts</h2>
-    <ul>
-        {% for post in posts %}
-            <li>
-                <a href="{% url 'post' post.id %}"><h3>{{ post.title }}</h3></a>
-                <p>{{ post.body }}</p>
-            </li>
-        {% endfor %}
-    </ul>
+    <div class="row">
+        <div class="col-6">
+            <h1 class="header">Posts</h1>
+        </div>
+        {% if user.is_authenticated %}
+            <div class="col-6 text-right">
+                <a href="{% url 'create-post' thread.id %}" class="btn btn-success" role="button"><i class="fas fa-plus-circle"></i> Create Post</a>
+            </div>
+        {% endif %}
+    </div>
+    
+    {% if posts|length > 0 %}
 
-    <a href="{% url 'index' %}">Home</a>
+       {% for post in posts %}
+            <hr>
+
+            <div class="row">
+                <div class="col-12">
+                    <a href="{% url 'post' post.id %}">
+                        <h1 class="titles">{{ post.title }}</h1>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <p class="details text-left">Created by {{ post.user.username }}</p>
+                </div>
+                <div class="col-6">
+                    <p class="details text-right">Created on {{ post.created_date.date }}</p>
+                </div>
+            </div>
+
+            <hr>
+        {% endfor %}
+
+    {% else %}
+        <hr>
+
+        <h4 class="text-center">No posts yet!</h4>
+        <p class="text-center">This thread has no posts to show yet! You can be the first to post something!</p>
+
+        <hr>
+    {% endif %} 
+
+
+    <a href="#jumbo">Back to top <i class="fas fa-level-up-alt"></i></a>
 
 {% endblock %}

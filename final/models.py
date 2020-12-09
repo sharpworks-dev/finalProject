@@ -1,18 +1,14 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
-# Create your models here.
-class User(models.Model):
-    email = models.EmailField()
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
-    username = models.CharField(max_length=20)
-    created_date = models.DateTimeField(auto_now_add=True)
-    last_modified_date = models.DateTimeField(auto_now=True)
-    bio = models.TextField(max_length=2000)
+class Profile(models.Model):
+    user = models.OneToOneField(User, to_field='id', on_delete=models.CASCADE)
+    bio = models.TextField(max_length=2000, blank=True, null=True)
+    status = models.CharField(max_length=30, blank=True, null=True)
 
     def __str__(self):
-        return self.first_name + " \"" + self.username + "\" " + self.last_name
+        return self.user.username + "'s Profile"
 
 
 class Thread(models.Model):
@@ -26,23 +22,26 @@ class Thread(models.Model):
 
 
 class Post(models.Model):
-    thread_id = models.ForeignKey(Thread, on_delete=models.CASCADE)
-    user_Id = models.ForeignKey(User, on_delete=models.CASCADE)
+    thread = models.ForeignKey(Thread, to_field='id', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, to_field='id', on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     created_date = models.DateTimeField(auto_now_add=True)
     last_modified_date = models.DateTimeField(auto_now=True)
     body = models.TextField(max_length=10000)
 
+    class Meta:
+        unique_together = ('user', 'title')
+
     def __str__(self):
-        return "User: " + str(self.user_Id.username) + " -- " + self.title
+        return "User: " + str(self.user.username) + " -- " + self.title
 
 
 class Comment(models.Model):
-    post_Id = models.ForeignKey(Post, on_delete=models.CASCADE)
-    user_Id = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, to_field='id', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, to_field='id', on_delete=models.CASCADE)
     created_date = models.DateTimeField(auto_now_add=True)
     last_modified_date = models.DateTimeField(auto_now=True)
     body = models.TextField(max_length=1000)
 
     def __str__(self):
-        return "User: " + str(self.user_Id.username) + " -- " + self.body
+        return "User: " + str(self.user.username) + " -- " + self.body

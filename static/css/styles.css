@@ -1,0 +1,143 @@
+body{
+background-color: #021935;
+}
+
+.logo{
+    width: 1.2em;
+    padding-right: 5px;
+    padding-bottom: 7px;
+}
+
+.jumbotron{
+    background-image: url("../img/Banner.jpg");
+    background-size: 100%;
+    border: 1px solid silver;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+}
+
+.jumbo-label{
+    text-align: center;
+    color: #fafafa;
+	font-size: 40px;
+    font-weight: bold;
+	-webkit-text-stroke: 1px #fefefe;
+	text-shadow: -1px 0px 3px black,
+        -1px 0px 4px black,
+        -1px 0px 4px gray,
+        1px 1px 4px gray,
+        1px 2px 4px black,
+        2px 2px 3px black,
+        2px 2px 3px black;
+}
+
+.header{
+    font-weight: bold;
+    text-align: start;
+    color: black;
+	font-size: 1.8em;
+}
+
+.titles{
+    font-weight: bold;
+    text-align: start;
+	font-size: 1.5em;
+}
+
+.navbar-brand{
+    font-weight: bold;
+    color: white;
+	font-size: 30px;
+	-webkit-text-stroke: 1px #F8F8F8;
+	text-shadow: -1px 4px 5px black,
+        3px 5px 8px black,
+        -1px 5px 10px gray;
+
+}
+
+.inline {
+    display: inline;
+}
+
+.block {
+    display: block;
+}
+
+.main{
+    border: 1px solid silver;
+    border-radius: 0.5em;
+    background-color: #fefefe;
+    padding: 25px;
+}
+
+.letter{
+    padding: 3px;
+    text-align: start;
+    color: #fafafa;
+	font-size: 32px;
+    -webkit-text-stroke: .5px gray;
+	text-shadow: 1px 2px 2px black,
+        -1px 1px 1px gray;
+}
+
+h2{
+    display: inline;
+    font-size: 28px;
+    font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+    font-weight: bold;
+}
+
+.details{
+    opacity: .7;
+    font-style: italic;
+    font-size: 15px;
+}
+
+p{
+    font-family: Roboto, sans-serif;
+}
+
+.comment{
+    border: 1px solid silver;
+    border-radius: 0.5em;
+    padding: 20px;
+    margin-top: 45px;
+}
+
+.user{
+    font-weight: bold;
+    font-size: 15px;
+    font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+}
+
+.body{
+    padding-top: 10px;
+}
+
+.head{
+    padding-bottom: 5px;
+}
+
+.home{
+    font-size: 25px;
+    padding-top: 25px;
+}
+
+footer{
+    padding-top: 50px;
+    font-size: .8em;
+    text-align: center;
+    color: #fafafa;
+}
+
+.edit{
+    margin-right: 40px;
+}
+
+a{
+    text-decoration: none !important;
+}
+
+.users{
+    color: inherit;
+}

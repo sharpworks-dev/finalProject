@@ -4,48 +4,81 @@
     <title>{{ post.title }}</title>
 {% endblock %}
 
+{% block jumbotron %}
+    <h1 class="display-5 jumbo-label">{{ post.title }}</h1>
+{% endblock %}
+
 {% block body %}
 
-    <a href="{% url 'index' %}">Home</a>
+    {% if user_is_author is True %}
+        <h1 class="details text-center ml-auto">You are the author of this post </h1>
+    {% endif %}
 
-    <h2>{{ post.title }}</h2>
 
-    <div class="container">
+    <div class="container py-1">
         <div class="row">
-            <div class="col-4">
-                <h5>{{ post.user_id }}</h5>
+            <div class="head col-md-8">
+                <h1 class="header">{{ post.title }}</h1>
+                {% if user_is_author is True %}
+                    <a href="{% url 'edit-post' post.id %}" class="btn btn-success" role="button"><i class="fas fa-edit"></i>Edit</a>
+                {% endif %}
             </div>
-            <div class="col-8">
-                <h5>{{ post.created_date }}</h5>
+            <div class="col-md-4">
+                <p class="details">By <a class="users" href="{% url 'profile' author.id%}">{{ author.username }}</a></p>
+                <p class="details">{{ post.created_date }}</p>
             </div>
         </div>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <p class="body">{{ post.body }}</p>
+            </div>
+        </div>
+        <hr>
     </div>
 
-    <p>{{ post.body }}</p>
 
-    <hr>
+    <div class="comment" class="container">
+        <div class="head">
+            <h1 class="header">Comments</h1>
+        </div>
+    
+        {% if user.is_authenticated %}
+            <form action="{% url 'post' post.id %}" method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-9">
+                        {{ commentForm.body }}
+                    </div>
+                    <div class="col-3">
+                        <input type="submit" value="Comment" class="btn btn-success">
+                    </div>
+                </div>
+            </form>
+        {% endif %}
 
-    <div class="container">
         {% for comment in comments %}
+            <hr>
             <div class="row">
                 <div class="container">
                     <div class="row">
                         <div class="col-4">
-                            <h4>{{ comment.user_id }}</h4>
+                            <p class="user"><a class="users" href="{% url 'profile' comment.user.id%}">{{ comment.user.username }}</a></p>
                         </div>
                         <div class="col-8">
-                            <h4>{{ comment.created_date }}</h4>
+                            <p class="details">{{ comment.created_date }}</p>
                         </div>
                     </div>
                     <div class="row">
-                        <p>{{ comment.body }}</p>
+                        <div class="col">
+                            <p>{{ comment.body }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <br>
-            <br>
         {% endfor %}
     </div>
+
+    <a href="#jumbo">Back to top <i class="fas fa-level-up-alt"></i></a>
 
 {% endblock %}
